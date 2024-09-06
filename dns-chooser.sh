@@ -4,7 +4,11 @@ dns_servers='1.1.1.1 1.0.0.1 8.8.8.8 8.8.4.4 9.9.9.9 149.112.112.112 208.67.222.
 
 red="\e[31m"
 green="\e[32m"
-
+# Check if bc is installed
+if ! command -v bc &> /dev/null; then
+  # Install bc using apt
+  sudo apt install bc
+fi
 # Initialize variables for tracking lowest response time and server
 lowest_time=999999  # Set a high initial value to ensure first server is considered
 lowest_server=""
